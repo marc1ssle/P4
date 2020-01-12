@@ -38,10 +38,30 @@ sox $inputfile -t raw - | $X2X +sf | $FRAME -l 400 -p 80 | $WINDOW -l 400 -L 400
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC), en
   su fichero <code>scripts/wav2mfcc.sh</code>:
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+# El pipeline siguiente es el usado para calcular los coeficientes de predicción lineal 
+# (MFCC) en el script wav2mfcc.sh:
+sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 |
+        $MFCC -l 200 -m $mfcc_order -n $num_chan -s 8 > $base.mfc
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 - Indique qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+# Para el MFCC los parámetros que hemos considerado convenientes para el cálculo de sus coeficientes
+# son el número de canales, el orden del mfcc (2), la entrada y la salida.
+# En cuanto al LPCC 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones
   para una señal de prueba.
+  
+ *LPC*  
+   <img src/images="LP.jpg" width="640" align="center">
+ *LPCC*  
+   <img src/images="LPCC.jpg" width="640" align="center">
+ *MFCC*  
+   <img src/images="MFCC.jpg" width="640" align="center">
   
   *La imagen siguiente es un ejemplo de cómo insertar imágenes en markdown*
   
