@@ -48,9 +48,10 @@ sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 |
 - Indique qué parámetros considera adecuados para el cálculo de los coeficientes LPCC y MFCC.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
-# Para el MFCC los parámetros que hemos considerado convenientes para el cálculo de sus coeficientes
-# son el número de canales, el orden del mfcc (2), la entrada y la salida.
-# En cuanto al LPCC 
+# Para el MFCC los parámetros que hemos considerado convenientes para el cálculo de sus 
+# coeficientes son el número de canales, el orden del mfcc (2), la entrada y la salida.
+# En cuanto al LPCC los parámetros son el orden del cepstrum, el del filtro, el archivo de 
+# entrada y el de salida.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Inserte una imagen mostrando la dependencia entre los coeficientes 2 y 3 de las tres parametrizaciones
@@ -68,6 +69,11 @@ sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 |
   <img src="img/tanh.png" width="640" align="center">
   
   + ¿Cuál de ellas le parece que contiene más información?
+  
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.sh
+# La imagen referenciada al mfcc es la más incorrelada de las tres, como podemos observar en las
+# gráficas. Por tanto, como más incorrelada es una señal, más información contiene. En cuanto al LPCC,
+# es más incorrelado que el LPC, pero no tanto como el MFCC.
 
 - Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación normalizada entre los
   parámetros 2 y 3, y rellene la tabla siguiente con los valores obtenidos.
@@ -83,8 +89,12 @@ sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 |
 - Inserte una gráfica que muestre la función de densidad de probabilidad modelada por el GMM de un locutor
   para sus dos primeros coeficientes de MFCC.
   
+  <img src/images="GRAFICA_MFCC.jpg" width="640" align="center">
+  
 - Inserte una gráfica que permita comparar los modelos y poblaciones de dos locutores distintos. Comente el
   resultado obtenido y discuta si el modelado mediante GMM permite diferenciar las señales de uno y otro.
+  
+  <img src/images="GRAFICA_GMM.jpg" width="640" align="center">
 
 ### Reconocimiento del locutor.
 
