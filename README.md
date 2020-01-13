@@ -74,6 +74,7 @@ sox $inputfile -t raw - dither -p12 | $X2X +sf | $FRAME -l 200 -p 40 |
 # La imagen referenciada al mfcc es la más incorrelada de las tres, como podemos observar en las
 # gráficas. Por tanto, como más incorrelada es una señal, más información contiene. En cuanto al LPCC,
 # es más incorrelado que el LPC, pero no tanto como el MFCC.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación normalizada entre los
   parámetros 2 y 3, y rellene la tabla siguiente con los valores obtenidos.
